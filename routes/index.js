@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const router = express.Router()
 
-router.get('/', function (res, req) {
+router.get('/', function (req, res, next) {
     res.send("hello world")
 })
+
+module.exports = router 
