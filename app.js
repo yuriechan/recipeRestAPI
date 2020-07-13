@@ -1,7 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const router = require('./routes')
-const mysql = require('mysql')
+const { db, mysql } = require('./mySqlConfig')
+
+db.connect((err) => {
+    if (err) {
+        return console.log(err)
+    }
+    console.log('MySQL Connected...')
+})
 
 const app = express()
 const port = process.env.PORT || 3000
